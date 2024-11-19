@@ -7,10 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
-    ElDrawer: typeof import('element-plus/es')['ElDrawer']
-    ElLink: typeof import('element-plus/es')['ElLink']
-    ElRow: typeof import('element-plus/es')['ElRow']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     VpAudioPlayer: typeof import('el-admin-components')['VpAudioPlayer']

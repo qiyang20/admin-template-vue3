@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
         with:
-          version: 8.x
+          version: 9.x
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -33,11 +33,11 @@ jobs:
       - name: install
         run: pnpm install
       # 如果是自定义的域名则不需要下面的配置内容
-      # - name: Extract Repository name
-      #   run: echo "REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)" >> $GITHUB_ENV
+      - name: Extract Repository name
+        run: echo "REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)" >> $GITHUB_ENV
       - name: build
-        # env:
-        #   BASE_PATH: "/${{ env.REPO_NAME }}/"
+        env:
+          BASE_PATH: '/${{ env.REPO_NAME }}/'
         run: pnpm build
       - name: Setup Pages
         uses: actions/configure-pages@v3
